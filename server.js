@@ -3,13 +3,14 @@ const path = require('path');
 const https = require('https');
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
-const PORT = 3000; // change if you need a different port
+const PORT = process.env.PORT || 3000; // change if you need a different port
 
-// Configure your Telegram details here (server-side only)
-const TELEGRAM_BOT_TOKEN = '7916350475:AAGWNVmNeSHpM4v9BrkfdTzQnWWHceDwvhc';
-const TELEGRAM_CHAT_ID = '-1003116275691';
+// Configure your Telegram details from environment
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 app.use(cors());
 app.use(express.json({ limit: '100kb' }));
